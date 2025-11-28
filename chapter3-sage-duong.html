@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <link rel="shortcut icon" href="assets/images/favicon-the-vow.png" type="image/png">
+  <link rel="icon" href="assets/images/favicon-the-vow.png" type="image/png">
+
   <meta charset="utf-8" />
   <title>Đường – Sage of Thunder</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -29,6 +32,29 @@
 
     <div class="site-title">Sage 6 / 6</div>
     <h1 class="chapter-title">Đường – Sage of Thunder</h1>
+    <!-- Audio Player – Đường Narration -->
+<div class="audio-player" data-aos="fade-up">
+
+  <audio id="narration" preload="auto">
+    <source src="assets/audio/sage-duong.mp3" type="audio/mpeg">
+  </audio>
+
+  <button class="audio-btn" onclick="toggleNarration()">
+    ▶ Listen to True Thunder
+  </button>
+
+  <!-- RUNE SPINNER -->
+  <div class="rune-spinner" id="rune-spinner">
+    <img src="assets/images/rune-light.png" alt="Rune">
+  </div>
+
+  <!-- Progress Bar -->
+  <div class="audio-progress">
+    <div id="audio-bar"></div>
+  </div>
+
+</div>
+<br/>
     <p class="chapter-subtitle">“True Thunder”</p>
 
     <div class="chapter-image-wrapper">

@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <link rel="shortcut icon" href="assets/images/favicon-the-vow.png" type="image/png">
+  <link rel="icon" href="assets/images/favicon-the-vow.png" type="image/png">
+
   <meta charset="utf-8" />
   <title>Thắng – Sage of Wind</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -29,6 +32,29 @@
 
     <div class="site-title">Sage 4 / 6</div>
     <h1 class="chapter-title">Thắng – Sage of Wind</h1>
+    <!-- Audio Player – Thắng Narration -->
+<div class="audio-player" data-aos="fade-up">
+
+  <audio id="narration" preload="auto">
+    <source src="assets/audio/sage-thang.mp3" type="audio/mpeg">
+  </audio>
+
+  <button class="audio-btn" onclick="toggleNarration()">
+    ▶ Listen to Guiding Wind
+  </button>
+
+  <!-- RUNE SPINNER -->
+  <div class="rune-spinner" id="rune-spinner">
+    <img src="assets/images/rune-light.png" alt="Rune">
+  </div>
+
+  <!-- Progress Bar -->
+  <div class="audio-progress">
+    <div id="audio-bar"></div>
+  </div>
+
+</div>
+<br/>
     <p class="chapter-subtitle">“Guiding Wind”</p>
 
     <div class="chapter-image-wrapper">

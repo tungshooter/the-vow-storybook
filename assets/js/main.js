@@ -43,3 +43,64 @@ document.querySelectorAll("a.transition-link").forEach(link => {
     }
   });
 });
+
+/* ========== AUDIO PLAYER – THE VOW INTRO ========== */
+
+function toggleNarration() {
+  const audio = document.getElementById("narration");
+  const btn = document.querySelector(".audio-btn");
+
+    // Inside toggleNarration()
+    if (audio.paused) {
+        audio.play();
+        btn.innerText = "❚❚ Pause Narration";
+        btn.classList.add("pulsing");
+    } else {
+        audio.pause();
+        btn.innerText = "▶ Listen to the Legend";
+        btn.classList.remove("pulsing");
+    }
+
+    audio.addEventListener("ended", () => {
+        btn.innerText = "▶ Listen to the Legend";
+        btn.classList.remove("pulsing");
+    });
+}
+
+// PROGRESS BAR
+const narration = document.getElementById("narration");
+const audioBar = document.getElementById("audio-bar");
+
+if (narration) {
+  narration.addEventListener("timeupdate", () => {
+    const p = narration.currentTime / narration.duration;
+    audioBar.style.width = (p * 100) + "%";
+  });
+}
+
+// Attempt autoplay after small delay
+window.addEventListener("DOMContentLoaded", () => {
+  const audio = document.getElementById("narration");
+  if (audio) {
+    setTimeout(() => {
+      audio.play().catch(() => {
+        console.log("Autoplay blocked — waiting for user interaction.");
+      });
+    }, 500);
+  }
+});
+
+/* Rune spin control */
+const rune = document.getElementById("rune-spinner");
+
+narration.addEventListener("play", () => {
+  rune.classList.add("rune-active");
+});
+
+narration.addEventListener("pause", () => {
+  rune.classList.remove("rune-active");
+});
+
+narration.addEventListener("ended", () => {
+  rune.classList.remove("rune-active");
+});

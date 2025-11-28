@@ -4,6 +4,8 @@
   <meta charset="utf-8" />
   <title>The Vow Storybook – Prologue</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="shortcut icon" href="assets/images/favicon-the-vow.png" type="image/png">
+  <link rel="icon" href="assets/images/favicon-the-vow.png" type="image/png">
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,6 +38,29 @@
     <div class="chapter-card">
       <div class="site-title">THE VOW</div>
       <h1 class="chapter-title">A Brotherhood Story</h1>
+
+      <!-- Audio Player – The Vow Narration -->
+<div class="audio-player" data-aos="fade-up">
+
+  <audio id="narration" preload="auto">
+    <source src="assets/audio/index-narration.mp3" type="audio/mpeg">
+  </audio>
+
+  <button class="audio-btn" onclick="toggleNarration()">
+    ▶ Listen to the Legend
+  </button>
+
+  <!-- RUNE SPINNER -->
+  <div class="rune-spinner" id="rune-spinner">
+    <img src="assets/images/rune-light.png" alt="Rune">
+  </div>
+
+  <div class="audio-progress">
+    <div id="audio-bar"></div>
+  </div>
+</div>
+
+    <br />
       <p class="chapter-subtitle">A circle without beginning, without end.</p>
 
       <div class="chapter-image-wrapper">

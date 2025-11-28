@@ -272,3 +272,84 @@ body {
 .fade-overlay.active {
   opacity: 1;
 }
+
+/* AUDIO PLAYER – ZONAI STYLE */
+
+.audio-player {
+  margin-top: 25px;
+  text-align: center;
+}
+
+.audio-btn {
+  background: transparent;
+  border: 1px solid #00ffc8;
+  color: #00ffc8;
+  padding: 10px 22px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.25s;
+  text-shadow: 0 0 8px #00ffc8;
+  box-shadow: 0 0 8px #00ffc8 inset;
+}
+
+.audio-btn:hover {
+  background: rgba(0,255,200,0.08);
+  box-shadow: 0 0 12px #00ffc8 inset, 0 0 6px #00ffc8;
+}
+
+.audio-progress {
+  width: 80%;
+  height: 4px;
+  background: rgba(255,255,255,0.1);
+  margin: 15px auto 0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#audio-bar {
+  width: 0%;
+  height: 100%;
+  background: #00ffc8;
+  box-shadow: 0 0 6px #00ffc8, 0 0 10px #00ffc8;
+  transition: width 0.1s linear;
+}
+
+/* RUNE SPINNER */
+.rune-spinner {
+  margin: 15px auto;
+  width: 60px;
+  height: 60px;
+  opacity: 0.3;
+  transition: opacity 0.4s;
+}
+
+.rune-spinner img {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 8px #00ffc8);
+  animation: runeSpin 5s linear infinite;
+  animation-play-state: paused;
+}
+
+@keyframes runeSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.rune-active img {
+  animation-play-state: running;
+  opacity: 1;
+}
+
+/* BUTTON ENERGY PULSE */
+.audio-btn.pulsing {
+  animation: pulseGlow 1.1s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%   { box-shadow: 0 0 8px #00ffc8 inset, 0 0 6px #00ffc8; }
+  50%  { box-shadow: 0 0 12px #00ffc8 inset, 0 0 12px #00ffc8; }
+  100% { box-shadow: 0 0 8px #00ffc8 inset, 0 0 6px #00ffc8; }
+}

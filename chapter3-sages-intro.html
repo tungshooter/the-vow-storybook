@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <link rel="shortcut icon" href="assets/images/favicon-the-vow.png" type="image/png">
+  <link rel="icon" href="assets/images/favicon-the-vow.png" type="image/png">
+
   <meta charset="utf-8" />
   <title>Chapter III – The Six Sages</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -31,6 +34,29 @@
 
     <div class="site-title">Chapter III</div>
     <h1 class="chapter-title">The Six Sages</h1>
+    <!-- Audio Player – Chapter 3 Narration -->
+<div class="audio-player" data-aos="fade-up">
+
+  <audio id="narration" preload="auto">
+    <source src="assets/audio/chapter3-sages.mp3" type="audio/mpeg">
+  </audio>
+
+  <button class="audio-btn" onclick="toggleNarration()">
+    ▶ Listen to the Six Sages
+  </button>
+
+  <!-- RUNE SPINNER -->
+  <div class="rune-spinner" id="rune-spinner">
+    <img src="assets/images/rune-light.png" alt="Rune">
+  </div>
+
+  <!-- Progress Bar -->
+  <div class="audio-progress">
+    <div id="audio-bar"></div>
+  </div>
+
+</div>
+<br/>
     <p class="chapter-subtitle">Sáu nguyên tố – Sáu sức mạnh – Sáu con người</p>
 
     <div class="chapter-text">
