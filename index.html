@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>The Vow Storybook – Prologue</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&display=swap" rel="stylesheet">
+  <script src="assets/js/main.js" defer></script>
+
+  <!-- AOS library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function(){
+    AOS.init({
+        duration: 900,
+        easing: "ease-out-cubic",
+        once: true
+    });
+    });
+    </script>
+</head>
+<body class="parallax-bg">
+    <div id="fade-overlay" class="fade-overlay"></div>
+
+<div class="progress-container">
+  <div id="progress-bar" class="progress-bar"></div>
+</div>
+
+<div id="progress-label" class="progress-label">Memory Sync: 0%</div>
+  <div class="page-wrapper">
+    <div class="chapter-card">
+      <div class="site-title">THE VOW</div>
+      <h1 class="chapter-title">A Brotherhood Story</h1>
+      <p class="chapter-subtitle">A circle without beginning, without end.</p>
+
+      <div class="chapter-image-wrapper">
+        <img src="assets/images/logo-circle.png" alt="The Vow Circle Logo" class="chapter-image glow">
+      </div>
+
+      <div class="chapter-text">
+        <p>
+          Ở Đà Nẵng, có một người anh sống như một “Link đời thật”. Ở Hà Nội, có sáu người anh em mang sáu nguồn năng lượng khác nhau.
+          Giữa họ là một vòng tròn vô hình – không có điểm bắt đầu, không có điểm kết thúc – chỉ có sự tin tưởng và lời hứa sẽ luôn dõi theo nhau.
+        </p>
+        <p>
+          Câu chuyện này là hành trình của bảy người đàn ông, mỗi năm chỉ gặp nhau một vài lần, nhưng mỗi lần là một lần trái tim nhắc họ rằng:
+          <strong>đây là nhà.</strong>
+        </p>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn" onclick="downloadImage('logo-circle.png')">Download Logo Circle</button>
+        <a href="chapter1-hero.html" class="btn btn-secondary transition-link">Begin the Journey →</a>
+      </div>
+
+      <div class="chapter-footer">
+        <span>The Vow · Storybook</span>
+        <span><a href="https://github.com/tungshooter/the-vow-storybook" target="_blank">View on GitHub</a></span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

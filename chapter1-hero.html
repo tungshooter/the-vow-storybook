@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Chapter I – The Lone Hero</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="assets/js/main.js" defer></script>
+
+  <!-- AOS library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function(){
+    AOS.init({
+        duration: 900,
+        easing: "ease-out-cubic",
+        once: true
+    });
+    });
+    </script>
+</head>
+<body class="parallax-bg">
+<div id="fade-overlay" class="fade-overlay"></div>
+
+<div class="progress-container">
+  <div id="progress-bar" class="progress-bar"></div>
+</div>
+
+<div id="progress-label" class="progress-label">Memory Sync: 0%</div>
+  <div class="page-wrapper">
+    <div class="chapter-card">
+      <div class="site-title">Chapter I</div>
+      <h1 class="chapter-title">The Lone Hero</h1>
+      <p class="chapter-subtitle">Link – Người anh cả từ Đà Nẵng</p>
+
+      <div class="chapter-image-wrapper">
+        <img src="assets/images/hero.png" alt="Hero Profile Card" class="chapter-image glow">
+      </div>
+
+      <div class="chapter-text">
+        <p>
+          Ở miền biển Đà Nẵng, có một người anh cả lặng lẽ, giản dị, nhưng luôn suy nghĩ cho người khác.
+          Anh giống như Link – đứng một mình, nhưng chưa bao giờ thật sự cô đơn. Trong lòng anh, luôn có hình bóng của sáu người em ngoài Hà Nội.
+        </p>
+        <p>
+          Dù mỗi người một cuộc sống, một lịch trình, một nhịp độ, anh vẫn giữ cho mình một lời thề:
+          <strong>dù xa đến đâu, anh vẫn sẽ tìm cách hội ngộ cùng anh em.</strong>
+        </p>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn" onclick="downloadImage('hero.png')">Download Hero Card</button>
+        <a href="index.html" class="btn btn-secondary transition-link">← Back</a>
+        <a href="chapter2-circle.html" class="btn transition-link">Next Chapter →</a>
+      </div>
+
+      <div class="chapter-footer">
+        <span>The Vow · The Lone Hero</span>
+        <span><a href="index.html">Prologue</a></span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

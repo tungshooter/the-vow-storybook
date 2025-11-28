@@ -1,0 +1,274 @@
+/* ===== Global Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== Base Layout ===== */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #02151a 0, #000 45%, #000 100%);
+  color: #e6fbff;
+  min-height: 100vh;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.page-wrapper {
+  max-width: 960px;
+  width: 100%;
+  padding: 24px 16px 40px;
+  margin: 0 auto;
+}
+
+/* ===== Neon Border Card ===== */
+.chapter-card {
+  border-radius: 20px;
+  border: 1px solid rgba(0, 255, 200, 0.35);
+  background: radial-gradient(circle at top, rgba(0, 255, 200, 0.06), rgba(0, 0, 0, 0.9));
+  box-shadow:
+    0 0 25px rgba(0, 255, 200, 0.25),
+    0 0 2px rgba(0, 0, 0, 0.9);
+  padding: 20px 18px 24px;
+}
+
+/* ===== Typography ===== */
+.site-title {
+  font-family: "Cinzel", "Times New Roman", serif;
+  letter-spacing: 0.12em;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  color: #66ffe0;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.chapter-title {
+  font-family: "Cinzel", "Times New Roman", serif;
+  font-size: 1.45rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #f5f0e6;
+  margin-bottom: 16px;
+}
+
+.chapter-subtitle {
+  text-align: center;
+  color: #b0ffeb;
+  font-size: 0.9rem;
+  margin-bottom: 18px;
+}
+
+.chapter-text {
+  margin-top: 16px;
+  line-height: 1.6;
+  color: #d8f9ff;
+  font-size: 0.98rem;
+  text-align: justify;
+}
+
+.chapter-text p + p {
+  margin-top: 10px;
+}
+
+/* ===== Image Block ===== */
+.chapter-image-wrapper {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
+}
+
+.chapter-image {
+  max-width: 100%;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 255, 200, 0.4);
+  box-shadow:
+    0 0 18px rgba(0, 255, 200, 0.35),
+    0 0 3px rgba(0, 0, 0, 0.9);
+}
+
+/* Grid for sages (chapter 3) */
+.sages-grid {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+}
+
+.sage-card {
+  text-align: center;
+}
+
+.sage-card img {
+  max-width: 100%;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 255, 200, 0.35);
+  box-shadow:
+    0 0 10px rgba(0, 255, 200, 0.3),
+    0 0 3px rgba(0, 0, 0, 0.9);
+}
+
+.sage-name {
+  margin-top: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #f5f0e6;
+}
+
+.sage-tagline {
+  font-size: 0.78rem;
+  color: #aefcee;
+}
+
+/* ===== Buttons ===== */
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+  justify-content: center;
+}
+
+.btn {
+  border-radius: 999px;
+  border: 1px solid rgba(0, 255, 200, 0.55);
+  padding: 7px 14px;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #012c30, #026058);
+  color: #e6fbff;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.17s ease-out;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #00ffc8, #00a68a);
+  color: #001314;
+  box-shadow: 0 0 18px rgba(0, 255, 200, 0.7);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, #191b24, #14171f);
+  border-color: rgba(150, 255, 230, 0.3);
+  color: #c2f7ff;
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(135deg, #262a36, #10131a);
+  color: #ffffff;
+  box-shadow: 0 0 14px rgba(0, 255, 200, 0.55);
+}
+
+/* ===== Footer Nav ===== */
+.chapter-footer {
+  margin-top: 20px;
+  border-top: 1px solid rgba(0, 255, 200, 0.3);
+  padding-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 0.8rem;
+  color: #8fded0;
+}
+
+.chapter-footer a {
+  color: #8fded0;
+  text-decoration: none;
+}
+
+.chapter-footer a:hover {
+  color: #e6fbff;
+  text-decoration: underline;
+}
+
+/* ===== Mobile tweaks ===== */
+@media (min-width: 768px) {
+  .page-wrapper {
+    padding-top: 36px;
+  }
+
+  .chapter-card {
+    padding: 24px 24px 28px;
+  }
+
+  .chapter-title {
+    font-size: 1.7rem;
+  }
+
+  .chapter-text {
+    font-size: 1rem;
+  }
+}
+
+.parallax-bg {
+  background: radial-gradient(circle at top, #012729 0%, #000 70%);
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+@keyframes neonPulse {
+  0% { box-shadow: 0 0 6px rgba(0,255,200,0.2); }
+  50% { box-shadow: 0 0 22px rgba(0,255,200,0.55); }
+  100% { box-shadow: 0 0 6px rgba(0,255,200,0.2); }
+}
+
+.chapter-image.glow {
+  animation: neonPulse 3.2s infinite ease-in-out;
+}
+
+.progress-container {
+  width: 100%;
+  height: 6px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(255,255,255,0.05);
+  z-index: 999;
+}
+
+.progress-bar {
+  height: 6px;
+  width: 0%;
+  background: #00ffc8;
+  box-shadow: 0 0 8px #00ffc8, 0 0 12px #00ffc8;
+  transition: width 0.1s linear;
+}
+
+.progress-label {
+  position: fixed;
+  top: 8px;
+  right: 10px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #00ffc8;
+  text-shadow: 0 0 6px #00ffc8;
+  z-index: 1000;
+}
+
+.fade-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease-in-out;
+  z-index: 2000;
+}
+
+.fade-overlay.active {
+  opacity: 1;
+}
