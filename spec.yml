@@ -1,0 +1,479 @@
+# ======================================================================
+#  THE VOW STORYBOOK - SYSTEM SPECIFICATION
+# ======================================================================
+
+app:
+  name: "The Vow Storybook"
+  description: "Interactive storybook về hành trình tình bạn của 7 anh em với Zelda-style narration, audio và visual effects"
+  version: "1.0.0"
+  theme: "The Legend of Zelda inspired (BOTW/TOTK aesthetic)"
+  tech_stack: "Vanilla HTML5, CSS3, JavaScript"
+  repository: "https://github.com/tungshooter/the-vow-storybook"
+  live_url: "https://tungshooter.github.io/the-vow-storybook/"
+
+# ======================================================================
+# PAGES
+# ======================================================================
+
+pages:
+  
+  # PROLOGUE
+  - id: "prologue"
+    file: "index.html"
+    title: "The Vow Storybook – Prologue"
+    summary: "Landing page giới thiệu The Vow và logo vòng tròn - A circle without beginning, without end"
+    assets:
+      - "assets/audio/index-narration.mp3"
+      - "assets/images/logo-circle.png"
+      - "assets/images/rune-light.png"
+    css:
+      - "assets/css/style.css"
+      - "https://unpkg.com/aos@2.3.1/dist/aos.css"
+      - "https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&display=swap"
+    js:
+      - "assets/js/main.js"
+      - "https://unpkg.com/aos@2.3.1/dist/aos.js"
+  
+  # CHAPTER 1
+  - id: "chapter1"
+    file: "chapter1-hero.html"
+    title: "Chapter I – The Lone Hero"
+    summary: "Giới thiệu nhân vật chính - Link (Đà từ Đà Nẵng) - Người anh cả sống như Link đời thật"
+    assets:
+      - "assets/audio/chapter1-hero.mp3"
+      - "assets/images/hero.png"
+      - "assets/images/rune-light.png"
+    css:
+      - "assets/css/style.css"
+      - "https://unpkg.com/aos@2.3.1/dist/aos.css"
+    js:
+      - "assets/js/main.js"
+      - "https://unpkg.com/aos@2.3.1/dist/aos.js"
+  
+  # CHAPTER 2
+  - id: "chapter2"
+    file: "chapter2-circle.html"
+    title: "Chapter II – The Eternal Circle"
+    summary: "Vòng tròn The Vow - biểu tượng sự gắn kết của 7 anh em"
+    assets:
+      - "assets/audio/chapter2-circle.mp3"
+      - "assets/images/logo-circle.png"
+      - "assets/images/rune-light.png"
+    css:
+      - "assets/css/style.css"
+      - "https://unpkg.com/aos@2.3.1/dist/aos.css"
+    js:
+      - "assets/js/main.js"
+      - "https://unpkg.com/aos@2.3.1/dist/aos.js"
+  
+  # CHAPTER 3 - SAGES INTRO
+  - id: "chapter3-intro"
+    file: "chapter3-sages-intro.html"
+    title: "Chapter III – The Six Sages"
+    summary: "Giới thiệu 6 Sages - Sáu nguyên tố, sáu sức mạnh, sáu con người"
+    assets:
+      - "assets/audio/chapter3-sages.mp3"
+      - "assets/images/rune-light.png"
+    css:
+      - "assets/css/style.css"
+      - "https://unpkg.com/aos@2.3.1/dist/aos.css"
+    js:
+      - "assets/js/main.js"
+      - "https://unpkg.com/aos@2.3.1/dist/aos.js"
+  
+  # SAGE HUY
+  - id: "sage-huy"
+    file: "chapter3-sage-huy.html"
+    title: "Huy – Sage of [Element]"
+    summary: "Profile của Sage Huy (Sage 1/6)"
+    assets:
+      - "assets/audio/sage-huy.mp3"
+      - "assets/images/sage-huy.png"
+      - "assets/images/rune-light.png"
+    css:
+      - "assets/css/style.css"
+      - "https://unpkg.com/aos@2.3.1/dist/aos.css"
+    js:
+      - "assets/js/main.js"
+      - "https://unpkg.com/aos@2.3.1/dist/aos.js"
+  
+  # SAGE HAI
+  - id: "sage-hai"
+    file: "chapter3-sage-hai.html"
+    title: "Hải – Sage of [Element]"
+    summary: "Profile của Sage Hải (Sage 2/6)"
+    assets:
+      - "assets/audio/sage-hai.mp3"
+      - "assets/images/sage-hai.png"
+      - "assets/images/rune-light.png"
+    css:
+      - "assets/css/style.css"
+      - "https://unpkg.com/aos@2.3.1/dist/aos.css"
+    js:
+      - "assets/js/main.js"
+      - "https://unpkg.com/aos@2.3.1/dist/aos.js"
+  
+  # SAGE DUONG
+  - id: "sage-duong"
+    file: "chapter3-sage-duong.html"
+    title: "Dương – Sage of [Element]"
+    summary: "Profile của Sage Dương (Sage 3/6)"
+    assets:
+      - "assets/audio/sage-duong.mp3"
+      - "assets/images/sage-duong.png"
+      - "assets/images/rune-light.png"
+    css:
+      - "assets/css/style.css"
+      - "https://unpkg.com/aos@2.3.1/dist/aos.css"
+    js:
+      - "assets/js/main.js"
+      - "https://unpkg.com/aos@2.3.1/dist/aos.js"
+  
+  # SAGE TRUNG
+  - id: "sage-trung"
+    file: "chapter3-sage-trung.html"
+    title: "Trung – Sage of [Element]"
+    summary: "Profile của Sage Trung (Sage 4/6)"
+    assets:
+      - "assets/audio/sage-trung.mp3"
+      - "assets/images/sage-trung.png"
+      - "assets/images/rune-light.png"
+    css:
+      - "assets/css/style.css"
+      - "https://unpkg.com/aos@2.3.1/dist/aos.css"
+    js:
+      - "assets/js/main.js"
+      - "https://unpkg.com/aos@2.3.1/dist/aos.js"
+  
+  # SAGE TUNG
+  - id: "sage-tung"
+    file: "chapter3-sage-tung.html"
+    title: "Tùng – Sage of Light"
+    summary: "Profile của Sage Tùng - Guiding Light, người lưu giữ ký ức (Sage 5/6)"
+    assets:
+      - "assets/audio/sage-tung.mp3"
+      - "assets/images/sage-tung.png"
+      - "assets/images/rune-light.png"
+    css:
+      - "assets/css/style.css"
+      - "https://unpkg.com/aos@2.3.1/dist/aos.css"
+    js:
+      - "assets/js/main.js"
+      - "https://unpkg.com/aos@2.3.1/dist/aos.js"
+  
+  # SAGE THANG
+  - id: "sage-thang"
+    file: "chapter3-sage-thang.html"
+    title: "Thắng – Sage of [Element]"
+    summary: "Profile của Sage Thắng (Sage 6/6)"
+    assets:
+      - "assets/audio/sage-thang.mp3"
+      - "assets/images/sage-thang.png"
+      - "assets/images/rune-light.png"
+    css:
+      - "assets/css/style.css"
+      - "https://unpkg.com/aos@2.3.1/dist/aos.css"
+    js:
+      - "assets/js/main.js"
+      - "https://unpkg.com/aos@2.3.1/dist/aos.js"
+  
+  # CHAPTER 4
+  - id: "chapter4"
+    file: "chapter4-sword.html"
+    title: "Chapter IV – The Sword"
+    summary: "Biểu tượng thanh kiếm - reunion và tái hội ngộ"
+    assets:
+      - "assets/audio/chapter4-reunion.mp3"
+      - "assets/images/logo-sword.png"
+      - "assets/images/rune-light.png"
+    css:
+      - "assets/css/style.css"
+      - "https://unpkg.com/aos@2.3.1/dist/aos.css"
+    js:
+      - "assets/js/main.js"
+      - "https://unpkg.com/aos@2.3.1/dist/aos.js"
+  
+  # CHAPTER 5
+  - id: "chapter5"
+    file: "chapter5-pool.html"
+    title: "Chapter V – The Pool of Reflection"
+    summary: "Khoảnh khắc nhóm bên hồ - reflection và suy ngẫm"
+    assets:
+      - "assets/audio/chapter5-reflection.mp3"
+      - "assets/images/team-pool.png"
+      - "assets/images/rune-light.png"
+    css:
+      - "assets/css/style.css"
+      - "https://unpkg.com/aos@2.3.1/dist/aos.css"
+    js:
+      - "assets/js/main.js"
+      - "https://unpkg.com/aos@2.3.1/dist/aos.js"
+  
+  # CHAPTER 6
+  - id: "chapter6"
+    file: "chapter6-uniform.html"
+    title: "Chapter VI – The Uniform"
+    summary: "Áo và mũ đồng phục - biểu tượng unity và sự đoàn kết"
+    assets:
+      - "assets/audio/chapter6-armor.mp3"
+      - "assets/images/uniform-shirt.png"
+      - "assets/images/uniform-cap.png"
+      - "assets/images/rune-light.png"
+    css:
+      - "assets/css/style.css"
+      - "https://unpkg.com/aos@2.3.1/dist/aos.css"
+    js:
+      - "assets/js/main.js"
+      - "https://unpkg.com/aos@2.3.1/dist/aos.js"
+  
+  # CHAPTER 7
+  - id: "chapter7"
+    file: "chapter7-shield.html"
+    title: "Chapter VII – The Shield"
+    summary: "Biểu tượng khiên - protection và che chở lẫn nhau"
+    assets:
+      - "assets/audio/chapter7-thevow.mp3"
+      - "assets/images/logo-shield.png"
+      - "assets/images/rune-light.png"
+    css:
+      - "assets/css/style.css"
+      - "https://unpkg.com/aos@2.3.1/dist/aos.css"
+    js:
+      - "assets/js/main.js"
+      - "https://unpkg.com/aos@2.3.1/dist/aos.js"
+  
+  # CHAPTER 8
+  - id: "chapter8"
+    file: "chapter8-team.html"
+    title: "Chapter VIII – The Team United"
+    summary: "Đoàn kết - artwork toàn đội cùng nhau"
+    assets:
+      - "assets/audio/chapter8-epilogue.mp3"
+      - "assets/images/team-shield-art.png"
+      - "assets/images/rune-light.png"
+    css:
+      - "assets/css/style.css"
+      - "https://unpkg.com/aos@2.3.1/dist/aos.css"
+    js:
+      - "assets/js/main.js"
+      - "https://unpkg.com/aos@2.3.1/dist/aos.js"
+  
+  # ENDING
+  - id: "ending"
+    file: "ending.html"
+    title: "Final Page – The Final Vow"
+    summary: "Kết thúc câu chuyện - Lời thề không cần nói thành lời"
+    assets:
+      - "assets/audio/final.mp3"
+      - "assets/images/rune-light.png"
+      - "assets/zip/the-vow-pack.zip"
+    css:
+      - "assets/css/style.css"
+      - "https://unpkg.com/aos@2.3.1/dist/aos.css"
+    js:
+      - "assets/js/main.js"
+      - "https://unpkg.com/aos@2.3.1/dist/aos.js"
+
+# ======================================================================
+# STRUCTURE
+# ======================================================================
+
+structure:
+  
+  flow:
+    - "prologue → chapter1 → chapter2 → chapter3-intro"
+    - "chapter3-intro → sage-huy → sage-hai → sage-duong → sage-trung → sage-tung → sage-thang"
+    - "sage-thang → chapter4 → chapter5 → chapter6 → chapter7 → chapter8 → ending"
+    - "ending → prologue (loop)"
+  
+  page_types:
+    prologue:
+      - "prologue"
+    
+    chapters:
+      - "chapter1"
+      - "chapter2"
+      - "chapter3-intro"
+      - "chapter4"
+      - "chapter5"
+      - "chapter6"
+      - "chapter7"
+      - "chapter8"
+    
+    sage_profiles:
+      - "sage-huy"
+      - "sage-hai"
+      - "sage-duong"
+      - "sage-trung"
+      - "sage-tung"
+      - "sage-thang"
+    
+    ending:
+      - "ending"
+  
+  total_pages: 17
+
+# ======================================================================
+# COMMON RESOURCES
+# ======================================================================
+
+resources:
+  
+  global_css:
+    - "assets/css/style.css"
+    - "https://unpkg.com/aos@2.3.1/dist/aos.css"
+    - "https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&display=swap"
+  
+  global_js:
+    - "assets/js/main.js"
+    - "https://unpkg.com/aos@2.3.1/dist/aos.js"
+  
+  shared_images:
+    - path: "assets/images/rune-light.png"
+      description: "Animated rune spinner used in all audio players"
+      used_in: "All pages"
+    
+    - path: "assets/images/favicon-the-vow.png"
+      description: "Site favicon"
+      used_in: "All pages"
+  
+  audio_files:
+    total: 16
+    format: "MP3"
+    location: "assets/audio/"
+    voice_generation: "ElevenLabs"
+    files:
+      - "index-narration.mp3"
+      - "chapter1-hero.mp3"
+      - "chapter2-circle.mp3"
+      - "chapter3-sages.mp3"
+      - "sage-huy.mp3"
+      - "sage-hai.mp3"
+      - "sage-duong.mp3"
+      - "sage-trung.mp3"
+      - "sage-tung.mp3"
+      - "sage-thang.mp3"
+      - "chapter4-reunion.mp3"
+      - "chapter5-reflection.mp3"
+      - "chapter6-armor.mp3"
+      - "chapter7-thevow.mp3"
+      - "chapter8-epilogue.mp3"
+      - "final.mp3"
+  
+  unique_images:
+    logos:
+      - "logo-circle.png"
+      - "logo-sword.png"
+      - "logo-shield.png"
+    
+    characters:
+      - "hero.png"
+      - "sage-huy.png"
+      - "sage-hai.png"
+      - "sage-duong.png"
+      - "sage-trung.png"
+      - "sage-tung.png"
+      - "sage-thang.png"
+    
+    team:
+      - "team-pool.png"
+      - "team-shield-art.png"
+    
+    uniform:
+      - "uniform-shirt.png"
+      - "uniform-cap.png"
+    
+    thumbnails:
+      location: "assets/images/thumbnails/"
+      count: 14
+      format: "JPG"
+  
+  downloadables:
+    - path: "assets/zip/the-vow-pack.zip"
+      description: "Complete image package"
+      available_from: "ending.html"
+
+# ======================================================================
+# TECHNICAL DETAILS
+# ======================================================================
+
+technical:
+  
+  stack:
+    frontend: "Vanilla HTML5, CSS3, JavaScript"
+    framework: "None"
+    animation: "AOS (Animate On Scroll)"
+    fonts: "Google Fonts (Cinzel)"
+    audio: "HTML5 Audio API"
+  
+  components:
+    - name: "audio_player"
+      description: "Custom audio player with rune spinner animation"
+      features:
+        - "Play/Pause control"
+        - "Rune rotation sync with audio state"
+        - "Progress bar tracking"
+        - "Auto-play attempt"
+    
+    - name: "progress_system"
+      description: "Scroll-based progress tracking"
+      label: "Memory Sync: X%"
+    
+    - name: "fade_overlay"
+      description: "Page transition overlay"
+      duration: "400ms"
+    
+    - name: "chapter_card"
+      description: "Main content container with neon border and glow effects"
+    
+    - name: "navigation_buttons"
+      types:
+        - "Download button"
+        - "Previous/Back button"
+        - "Next/Continue button"
+  
+  design_system:
+    color_palette:
+      primary: "#00ffc8 (cyan/turquoise)"
+      secondary: "#66ffe0"
+      background: "#000000"
+      text: "#e6fbff"
+      glow: "rgba(0, 255, 200, 0.25)"
+    
+    typography:
+      headings: "Cinzel (serif)"
+      body: "system-ui, sans-serif"
+    
+    effects:
+      - "Neon glow borders"
+      - "Rune rotation animation"
+      - "Fade transitions"
+      - "AOS scroll animations"
+      - "Button pulse effects"
+      - "Parallax background"
+  
+  responsive:
+    approach: "Mobile-first"
+    features:
+      - "Flexible layouts"
+      - "Scalable typography"
+      - "Touch-friendly buttons"
+
+# ======================================================================
+# DEPLOYMENT
+# ======================================================================
+
+deployment:
+  platform: "GitHub Pages"
+  url: "https://tungshooter.github.io/the-vow-storybook/"
+  branch: "main"
+  folder: "/root"
+  build_process: "None (static site)"
+  requirements:
+    - "Static file hosting"
+    - "HTTPS (for audio autoplay)"
+    - "HTML5 audio support"
+
+# ======================================================================
+# END OF SPECIFICATION
+# ======================================================================

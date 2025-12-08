@@ -1,0 +1,729 @@
+# ======================================================================
+#  THE VOW STORYBOOK - ONE-PAGE SPECIFICATION
+# ======================================================================
+
+app:
+  name: "The Vow Storybook - One Page Edition"
+  description: "Single-page version với auto-play audio xuyên suốt"
+  version: "2.0.0"
+  architecture: "Single Page Application (SPA)"
+  tech_stack: "Vanilla HTML5, CSS3, JavaScript"
+  repository: "https://github.com/tungshooter/the-vow-storybook"
+
+# ======================================================================
+# ONE-PAGE STRUCTURE
+# ======================================================================
+
+structure:
+  type: "single_html_file"
+  main_file: "index.html"
+  
+  layout:
+    description: "Tất cả pages bọc trong sections, mỗi lúc chỉ hiển thị 1 section"
+    pattern: |
+      <body>
+        <section id="page-prologue" class="page-section active">...</section>
+        <section id="page-chapter1" class="page-section">...</section>
+        <section id="page-chapter2" class="page-section">...</section>
+        ...
+      </body>
+    
+    css_rule: |
+      .page-section { display: none; }
+      .page-section.active { display: block; }
+  
+  navigation:
+    type: "show_hide_sections"
+    method: "JavaScript toggles .active class"
+    no_page_reload: true
+    no_url_change: false  # Optional: có thể dùng hash #page-id
+    
+  total_sections: 17
+
+# ======================================================================
+# AUTO-PLAY SYSTEM
+# ======================================================================
+
+autoplay:
+  enabled: true
+  description: "Audio tự động phát xuyên suốt, tự động chuyển page"
+  
+  behavior:
+    on_page_load:
+      - "Show first page (prologue)"
+      - "Auto-play prologue audio (if allowed by browser)"
+    
+    on_audio_end:
+      - "Hide current page"
+      - "Show next page"
+      - "Wait for DOM elements to be ready (AOS animations, images loaded)"
+      - "Wait 1 second (delay_ms: 1000)"
+      - "Auto-play next page audio"
+      - "Scroll to top of new page"
+    
+    on_last_page:
+      - "Audio ends normally"
+      - "Show 'Replay Story' button"
+      - "OR loop back to prologue"
+    
+    user_control:
+      - "Manual play/pause vẫn hoạt động"
+      - "Manual next/prev vẫn hoạt động"
+      - "Skip to section via navigation menu"
+      - "Toggle autoplay on/off"
+  
+  settings:
+    delay_before_audio: 1000  # milliseconds - delay AFTER page transition, BEFORE audio play
+    auto_start_audio: true
+    loop_story: false  # true = auto loop về đầu
+    respect_user_interaction: true  # pause autoplay if user clicks
+    wait_for_dom_ready: true  # ensure animations/images loaded before audio plays
+
+# ======================================================================
+# PAGES/SECTIONS
+# ======================================================================
+
+pages:
+  
+  # Mỗi page giờ là 1 section trong single HTML
+  - id: "prologue"
+    section_id: "page-prologue"
+    order: 1
+    title: "The Vow Storybook – Prologue"
+    site_title: "THE VOW"
+    chapter_title: "A Brotherhood Story"
+    chapter_subtitle: "A circle without beginning, without end"
+    
+    audio:
+      file: "assets/audio/index-narration.mp3"
+      button_text: "▶ Listen to the Legend"
+    
+    image:
+      main: "assets/images/logo-circle.png"
+      thumbnail: "assets/images/thumbnails/logo-circle-thumb.jpg"
+      use_thumbnail: true
+    
+    content:
+      text: |
+        Ở Đà Nẵng, có một người anh sống như một "Link đời thật". 
+        Ở Hà Nội, có sáu người anh em mang sáu nguồn năng lượng khác nhau.
+        Giữa họ là một vòng tròn vô hình...
+    
+    navigation:
+      prev: null
+      next: "chapter1"
+    
+    buttons:
+      - type: "download"
+        label: "Download Logo Circle"
+        action: "downloadImage('logo-circle.png')"
+  
+  - id: "chapter1"
+    section_id: "page-chapter1"
+    order: 2
+    title: "Chapter I – The Lone Hero"
+    site_title: "Chapter I"
+    chapter_title: "The Lone Hero"
+    chapter_subtitle: "Link – Người anh cả từ Đà Nẵng"
+    
+    audio:
+      file: "assets/audio/chapter1-hero.mp3"
+      button_text: "▶ Listen to the Hero's Story"
+    
+    image:
+      main: "assets/images/hero.png"
+      thumbnail: "assets/images/thumbnails/hero-thumb.jpg"
+      use_thumbnail: true
+    
+    navigation:
+      prev: "prologue"
+      next: "chapter2"
+    
+    buttons:
+      - type: "download"
+        label: "Download Hero Card"
+        target: "hero.png"
+  
+  - id: "chapter2"
+    section_id: "page-chapter2"
+    order: 3
+    title: "Chapter II – The Eternal Circle"
+    site_title: "Chapter II"
+    chapter_title: "The Eternal Circle"
+    chapter_subtitle: "Vòng tròn không điểm bắt đầu, không điểm kết thúc"
+    
+    audio:
+      file: "assets/audio/chapter2-circle.mp3"
+      button_text: "▶ Listen to the Awakening"
+    
+    image:
+      thumbnail: "assets/images/thumbnails/logo-circle-thumb.jpg"
+      use_thumbnail: true
+    
+    navigation:
+      prev: "chapter1"
+      next: "chapter3-intro"
+  
+  - id: "chapter3-intro"
+    section_id: "page-chapter3-intro"
+    order: 4
+    title: "Chapter III – The Six Sages"
+    site_title: "Chapter III"
+    chapter_title: "The Six Sages"
+    chapter_subtitle: "Sáu nguyên tố – Sáu sức mạnh – Sáu con người"
+    
+    audio:
+      file: "assets/audio/chapter3-sages.mp3"
+      button_text: "▶ Listen to the Six Sages"
+    
+    navigation:
+      prev: "chapter2"
+      next: "sage-huy"
+  
+  # 6 SAGES (NEW ORDER: Huy → Tung → Trung → Thang → Hai → Duong)
+  - id: "sage-huy"
+    section_id: "page-sage-huy"
+    order: 5
+    type: "sage_profile"
+    site_title: "Sage 1 / 6"
+    chapter_title: "Huy – Sage of Fire"
+    chapter_subtitle: "Eternal Flame"
+    audio:
+      file: "assets/audio/sage-huy.mp3"
+      button_text: "▶ Listen to Eternal Flame"
+    image:
+      thumbnail: "assets/images/thumbnails/sage-huy-thumb.jpg"
+      use_thumbnail: true
+    navigation:
+      prev: "chapter3-intro"
+      next: "sage-tung"
+  
+  - id: "sage-tung"
+    section_id: "page-sage-tung"
+    order: 6
+    type: "sage_profile"
+    site_title: "Sage 2 / 6"
+    chapter_title: "Tùng – Sage of Light"
+    chapter_subtitle: "Guiding Light"
+    audio:
+      file: "assets/audio/sage-tung.mp3"
+      button_text: "▶ Listen to Guiding Light"
+    image:
+      thumbnail: "assets/images/thumbnails/sage-tung-thumb.jpg"
+      use_thumbnail: true
+    navigation:
+      prev: "sage-huy"
+      next: "sage-trung"
+  
+  - id: "sage-trung"
+    section_id: "page-sage-trung"
+    order: 7
+    type: "sage_profile"
+    site_title: "Sage 3 / 6"
+    chapter_title: "Trung – Sage of Wind"
+    chapter_subtitle: "Swift Wind"
+    audio:
+      file: "assets/audio/sage-trung.mp3"
+      button_text: "▶ Listen to Swift Wind"
+    image:
+      thumbnail: "assets/images/thumbnails/sage-trung-thumb.jpg"
+      use_thumbnail: true
+    navigation:
+      prev: "sage-tung"
+      next: "sage-thang"
+  
+  - id: "sage-thang"
+    section_id: "page-sage-thang"
+    order: 8
+    type: "sage_profile"
+    site_title: "Sage 4 / 6"
+    chapter_title: "Thắng – Sage of Shadow"
+    chapter_subtitle: "Silent Shadow"
+    audio:
+      file: "assets/audio/sage-thang.mp3"
+      button_text: "▶ Listen to Silent Shadow"
+    image:
+      thumbnail: "assets/images/thumbnails/sage-thang-thumb.jpg"
+      use_thumbnail: true
+    navigation:
+      prev: "sage-trung"
+      next: "sage-hai"
+  
+  - id: "sage-hai"
+    section_id: "page-sage-hai"
+    order: 9
+    type: "sage_profile"
+    site_title: "Sage 5 / 6"
+    chapter_title: "Hải – Sage of Water"
+    chapter_subtitle: "Calm Depth"
+    audio:
+      file: "assets/audio/sage-hai.mp3"
+      button_text: "▶ Listen to Calm Depth"
+    image:
+      thumbnail: "assets/images/thumbnails/sage-hai-thumb.jpg"
+      use_thumbnail: true
+    navigation:
+      prev: "sage-thang"
+      next: "sage-duong"
+  
+  - id: "sage-duong"
+    section_id: "page-sage-duong"
+    order: 10
+    type: "sage_profile"
+    site_title: "Sage 6 / 6"
+    chapter_title: "Đường – Sage of Thunder"
+    chapter_subtitle: "True Thunder"
+    audio:
+      file: "assets/audio/sage-duong.mp3"
+      button_text: "▶ Listen to True Thunder"
+    image:
+      thumbnail: "assets/images/thumbnails/sage-duong-thumb.jpg"
+      use_thumbnail: true
+    navigation:
+      prev: "sage-hai"
+      next: "chapter4-sword"
+  
+  - id: "chapter4-sword"
+    section_id: "page-chapter4-sword"
+    order: 11
+    title: "Chapter IV – The Sword"
+    site_title: "Chapter IV"
+    chapter_title: "The Sword"
+    chapter_subtitle: "Thanh kiếm dẫn đường từ Đà Nẵng ra Hà Nội"
+    audio:
+      file: "assets/audio/chapter4-reunion.mp3"
+      button_text: "▶ Listen to The Reunion"
+    image:
+      thumbnail: "assets/images/thumbnails/logo-sword-thumb.jpg"
+      use_thumbnail: true
+    navigation:
+      prev: "sage-duong"
+      next: "chapter5-pool"
+  
+  - id: "chapter5-pool"
+    section_id: "page-chapter5-pool"
+    order: 12
+    title: "Chapter V – The Pool Gathering"
+    site_title: "Chapter V"
+    chapter_title: "The Pool Gathering"
+    chapter_subtitle: "Khoảnh khắc triệu hồi đủ bảy người"
+    audio:
+      file: "assets/audio/chapter5-reflection.mp3"
+      button_text: "▶ Listen to The Reflection"
+    image:
+      thumbnail: "assets/images/thumbnails/team-pool-thumb.jpg"
+      use_thumbnail: true
+    navigation:
+      prev: "chapter4-sword"
+      next: "chapter6-uniform"
+  
+  - id: "chapter6-uniform"
+    section_id: "page-chapter6-uniform"
+    order: 13
+    title: "Chapter VI – The Uniform"
+    site_title: "Chapter VI"
+    chapter_title: "The Uniform"
+    chapter_subtitle: "Không chỉ là áo, mà là Lời Thề mặc được"
+    audio:
+      file: "assets/audio/chapter6-armor.mp3"
+      button_text: "▶ Listen to The Armor"
+    images:
+      - thumbnail: "assets/images/thumbnails/uniform-shirt-thumb.jpg"
+      - thumbnail: "assets/images/thumbnails/uniform-cap-thumb.jpg"
+    use_thumbnail: true
+    navigation:
+      prev: "chapter5-pool"
+      next: "chapter7-shield"
+  
+  - id: "chapter7-shield"
+    section_id: "page-chapter7-shield"
+    order: 14
+    title: "Chapter VII – The Shield"
+    site_title: "Chapter VII"
+    chapter_title: "The Shield"
+    chapter_subtitle: "Biểu tượng bảo hộ của The Vow"
+    audio:
+      file: "assets/audio/chapter7-thevow.mp3"
+      button_text: "▶ Listen to The Vow"
+    image:
+      thumbnail: "assets/images/thumbnails/logo-shield-thumb.jpg"
+      use_thumbnail: true
+    navigation:
+      prev: "chapter6-uniform"
+      next: "chapter8-team"
+  
+  - id: "chapter8-team"
+    section_id: "page-chapter8-team"
+    order: 15
+    title: "Chapter VIII – The Vow"
+    site_title: "Chapter VIII"
+    chapter_title: "The Vow"
+    chapter_subtitle: "Khi bảy người trở thành một đội"
+    audio:
+      file: "assets/audio/chapter8-epilogue.mp3"
+      button_text: "▶ Listen to the Epilogue"
+    image:
+      thumbnail: "assets/images/thumbnails/team-shield-art-thumb.jpg"
+      use_thumbnail: true
+    navigation:
+      prev: "chapter7-shield"
+      next: "ending"
+  
+  - id: "ending"
+    section_id: "page-ending"
+    order: 16
+    title: "Final Page – The Final Vow"
+    site_title: "Final Page"
+    chapter_title: "The Final Vow"
+    chapter_subtitle: "Lời thề không cần nói thành lời"
+    audio:
+      file: "assets/audio/final.mp3"
+      button_text: "▶ Listen to The Final Vow"
+    navigation:
+      prev: "chapter8"
+      next: null  # hoặc "prologue" nếu loop
+    
+    buttons:
+      - type: "download"
+        label: "Download All Images (ZIP)"
+        link: "assets/zip/the-vow-pack.zip"
+      - type: "replay"
+        label: "↻ Replay Story"
+        action: "goToPage('prologue')"
+
+# ======================================================================
+# SHARED COMPONENTS (Tái sử dụng)
+# ======================================================================
+
+components:
+  
+  page_template:
+    description: "Template HTML cho mỗi section"
+    structure: |
+      <section id="page-{id}" class="page-section" data-page-id="{id}">
+        <div class="page-wrapper">
+          <div class="chapter-card">
+            
+            <!-- Header -->
+            <div class="site-title">{site_title}</div>
+            <h1 class="chapter-title">{chapter_title}</h1>
+            
+            <!-- Audio Player -->
+            <div class="audio-player" data-aos="fade-up">
+              <audio class="page-audio" data-src="{audio_file}" preload="metadata">
+                <source src="{audio_file}" type="audio/mpeg">
+              </audio>
+              <button class="audio-btn">▶ {button_text}</button>
+              <div class="rune-spinner">
+                <img src="assets/images/rune-light.png" alt="Rune">
+              </div>
+              <div class="audio-progress">
+                <div class="audio-bar"></div>
+              </div>
+            </div>
+            
+            <!-- Subtitle -->
+            <p class="chapter-subtitle">{chapter_subtitle}</p>
+            
+            <!-- Image -->
+            <div class="chapter-image-wrapper">
+              <img src="{thumbnail}" class="chapter-image glow" 
+                   data-full-src="{full_image}" 
+                   loading="lazy"
+                   alt="{chapter_title}">
+            </div>
+            
+            <!-- Content -->
+            <div class="chapter-text">
+              {content_html}
+            </div>
+            
+            <!-- Buttons -->
+            <div class="btn-row">
+              {buttons_html}
+            </div>
+            
+            <!-- Footer -->
+            <div class="chapter-footer">
+              <span>The Vow · {chapter_title}</span>
+              <span><a href="#page-prologue">Home</a></span>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+  
+  global_elements:
+    - name: "progress_system"
+      element: |
+        <div class="progress-container">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+        <div id="progress-label" class="progress-label">Memory Sync: 0%</div>
+      
+      description: "Global progress bar - shows story completion %"
+      calculation: "(current_page_index / total_pages) * 100"
+    
+    - name: "fade_overlay"
+      element: '<div id="fade-overlay" class="fade-overlay"></div>'
+      description: "Transition overlay giữa các pages"
+    
+    - name: "navigation_dots"
+      element: |
+        <div class="page-nav-dots">
+          <div class="dot" data-page="prologue"></div>
+          <div class="dot" data-page="chapter1"></div>
+          ...
+        </div>
+      description: "Optional: dots navigation bên phải màn hình"
+
+# ======================================================================
+# JAVASCRIPT LOGIC
+# ======================================================================
+
+javascript:
+  
+  main_file: "assets/js/main-onepage.js"
+  
+  core_functions:
+    
+    - name: "initOnePage()"
+      description: "Initialize one-page app"
+      tasks:
+        - "Hide all sections except first"
+        - "Setup audio event listeners"
+        - "Setup navigation handlers"
+        - "Init autoplay system"
+        - "Load AOS animations"
+    
+    - name: "goToPage(pageId)"
+      description: "Navigate to specific page"
+      params:
+        - pageId: "string - ID của page (vd: 'chapter1')"
+      logic: |
+        1. Pause current audio
+        2. Hide current page (remove .active)
+        3. Show target page (add .active)
+        4. Update progress bar
+        5. Scroll to top
+        6. Re-init AOS for new page
+        7. Return Promise that resolves when DOM ready
+      
+      return_value: "Promise<void> - resolves when page fully visible and DOM ready"
+    
+    - name: "autoPlayNext()"
+      description: "Auto navigate to next page và play audio"
+      logic: |
+        1. Get current page ID
+        2. Find next page ID from navigation map
+        3. Call goToPage(nextPageId) - this shows the page
+        4. Wait for DOM ready (requestAnimationFrame + check if AOS done)
+        5. Wait additional delay (1000ms)
+        6. Auto play audio of new page
+      
+      implementation_notes:
+        - "Use requestAnimationFrame to ensure DOM painted"
+        - "Check if AOS animations initialized before playing audio"
+        - "Ensure images in viewport are loaded (or use placeholder)"
+        - "Only then trigger audio.play() with 1s delay"
+    
+    - name: "setupAudioAutoPlay()"
+      description: "Setup audio end event listeners"
+      logic: |
+        For each .page-audio:
+          audio.addEventListener('ended', () => {
+            if (autoplayEnabled) {
+              autoPlayNext()
+            }
+          })
+    
+    - name: "toggleAutoPlay()"
+      description: "User toggle autoplay on/off"
+      
+    - name: "updateProgress()"
+      description: "Update global progress bar"
+      logic: |
+        currentIndex = getCurrentPageIndex()
+        progress = (currentIndex / totalPages) * 100
+        Update progress bar width and label
+  
+  navigation_map:
+    description: "Map of prev/next pages (Updated with new Sage order)"
+    data: |
+      {
+        'prologue': { prev: null, next: 'chapter1' },
+        'chapter1': { prev: 'prologue', next: 'chapter2' },
+        'chapter2': { prev: 'chapter1', next: 'chapter3-intro' },
+        'chapter3-intro': { prev: 'chapter2', next: 'sage-huy' },
+        'sage-huy': { prev: 'chapter3-intro', next: 'sage-tung' },
+        'sage-tung': { prev: 'sage-huy', next: 'sage-trung' },
+        'sage-trung': { prev: 'sage-tung', next: 'sage-thang' },
+        'sage-thang': { prev: 'sage-trung', next: 'sage-hai' },
+        'sage-hai': { prev: 'sage-thang', next: 'sage-duong' },
+        'sage-duong': { prev: 'sage-hai', next: 'chapter4-sword' },
+        'chapter4-sword': { prev: 'sage-duong', next: 'chapter5-pool' },
+        'chapter5-pool': { prev: 'chapter4-sword', next: 'chapter6-uniform' },
+        'chapter6-uniform': { prev: 'chapter5-pool', next: 'chapter7-shield' },
+        'chapter7-shield': { prev: 'chapter6-uniform', next: 'chapter8-team' },
+        'chapter8-team': { prev: 'chapter7-shield', next: 'ending' },
+        'ending': { prev: 'chapter8-team', next: null }
+      }
+  
+  state_management:
+    - current_page: "string - currently active page ID"
+    - autoplay_enabled: "boolean"
+    - audio_instances: "Map of all audio elements"
+    - page_history: "Array để support back button"
+
+# ======================================================================
+# CSS MODIFICATIONS
+# ======================================================================
+
+css:
+  
+  new_rules:
+    - selector: ".page-section"
+      properties:
+        display: "none"
+        opacity: "0"
+        transition: "opacity 0.5s ease"
+    
+    - selector: ".page-section.active"
+      properties:
+        display: "block"
+        opacity: "1"
+    
+    - selector: ".page-section.transitioning"
+      properties:
+        opacity: "0"
+  
+  optimizations:
+    - "Use transform: translateZ(0) for GPU acceleration"
+    - "Lazy load images outside viewport"
+    - "Preload next page audio when current is playing"
+
+# ======================================================================
+# PERFORMANCE OPTIMIZATIONS
+# ======================================================================
+
+performance:
+  
+  image_loading:
+    strategy: "thumbnails_first"
+    description: "Load thumbnails, upgrade to full on demand"
+    implementation: |
+      <img src="thumbnail.jpg" 
+           data-full-src="full-image.png" 
+           loading="lazy"
+           class="upgradeable">
+  
+  audio_preloading:
+    current_page: "preload='auto'"
+    next_page: "preload='metadata'"
+    others: "preload='none'"
+  
+  code_splitting:
+    description: "Không cần - already single file"
+  
+  lazy_execution:
+    - "Only init AOS for visible section"
+    - "Only attach audio events for current section"
+    - "Cleanup hidden sections' event listeners"
+
+# ======================================================================
+# MIGRATION PLAN
+# ======================================================================
+
+migration:
+  
+  from: "Multi-page HTML files"
+  to: "Single-page application"
+  
+  steps:
+    1_extract_content:
+      - "Extract body content từ mỗi HTML file"
+      - "Bỏ <html>, <head>, duplicate stylesheets"
+      - "Giữ lại structure từ .page-wrapper trở vào"
+    
+    2_wrap_sections:
+      - "Bọc mỗi page content vào <section id='page-{id}'>"
+      - "Add class 'page-section'"
+      - "Add data-page-id attribute"
+    
+    3_merge_html:
+      - "Tạo index-onepage.html mới"
+      - "Paste tất cả sections vào <body>"
+      - "Chỉ giữ 1 bộ <head> chung"
+    
+    4_update_paths:
+      - "Đổi images → thumbnails"
+      - "Update audio src paths"
+      - "Remove href navigation links"
+    
+    5_add_javascript:
+      - "Create main-onepage.js"
+      - "Implement navigation functions"
+      - "Setup autoplay system"
+    
+    6_testing:
+      - "Test all page transitions"
+      - "Test audio autoplay chain"
+      - "Test on mobile (autoplay restrictions)"
+      - "Test performance (17 sections in 1 HTML)"
+
+# ======================================================================
+# BROWSER COMPATIBILITY
+# ======================================================================
+
+compatibility:
+  
+  autoplay_restrictions:
+    chrome: "Requires user interaction first"
+    safari: "Requires user interaction first"
+    firefox: "More permissive"
+    
+    workaround: |
+      - Show "Start Story" button on first load
+      - After first user click, autoplay works
+      - Or use muted audio trick (play muted first)
+  
+  performance:
+    concern: "17 sections in 1 HTML = large DOM"
+    mitigation:
+      - "Use display:none (not render hidden sections)"
+      - "Lazy load images"
+      - "Preload only adjacent pages"
+      - "Consider virtual scrolling if needed"
+
+# ======================================================================
+# TESTING CHECKLIST
+# ======================================================================
+
+testing:
+  
+  functional:
+    - "✓ All 17 pages display correctly"
+    - "✓ Audio plays on each page"
+    - "✓ Auto-transition works (audio end → next page)"
+    - "✓ Manual next/prev works"
+    - "✓ Rune animation syncs with audio"
+    - "✓ Progress bar updates correctly"
+    - "✓ Download buttons work"
+    - "✓ Loop/replay at ending works"
+  
+  performance:
+    - "✓ Page load time < 3s"
+    - "✓ Transition smooth (no jank)"
+    - "✓ Memory usage reasonable"
+    - "✓ Mobile performance OK"
+  
+  ux:
+    - "✓ Can skip/jump pages"
+    - "✓ Can pause/resume story"
+    - "✓ Can toggle autoplay"
+    - "✓ Clear visual feedback"
+    - "✓ Accessible keyboard navigation"
+
+# ======================================================================
+# END OF SPECIFICATION
+# ======================================================================
